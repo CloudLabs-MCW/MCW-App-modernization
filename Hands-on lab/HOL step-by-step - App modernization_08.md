@@ -6,7 +6,7 @@ In this exercise, you will move the codebase to a GitHub Repo, create a staging 
 
 ### Task 1: Moving the codebase to a GitHub repo
 
-1. Login to [GitHub](https://github.com) with your account. Select the New button positioned on top of the repositories list. As an alternative you can [navigate to the new repository site here](https://github.com/new).
+1. Login to [GitHub](https://github.com) with your account, if you don't have an account create with signup option from the same page. Select the New button positioned on top of the repositories list. As an alternative you can [navigate to the new repository site here](https://github.com/new).
 
     ![GitHub.com Landing page is shown. New button to create a new repository is highlighted.](media/github-new-repo.png "GitHub new repo")
 
@@ -20,11 +20,7 @@ In this exercise, you will move the codebase to a GitHub Repo, create a staging 
 
     So far, we have used the WebVM virtual machine to simulate Parts Unlimited's On-Premises IIS server. Now that we are done with the migration of Parts Unlimited's web site. We will use the VM to execute some development tasks.
 
-4. Connect to your WebVM VM with RDP.
-
-   ![The WebVM virtual machine is highlighted in the list of resources.](media/webvm-selection.png "WebVM Selection")
-
-5. Right-click on the Windows Start Menu and select **Windows PowerShell (Admin)** to launch a terminal window.
+5. In WebVM VM, Right-click on the Windows Start Menu and select **Windows PowerShell (Admin)** to launch a terminal window.
 
     ![Start Menu context menu is open. Windows PowerShell (Admin) command is highlighted.](media/launch-powershell.png "Windows PowerShell")
 
@@ -57,7 +53,7 @@ In this exercise, you will move the codebase to a GitHub Repo, create a staging 
     git add .
     ```
 
-10. Before we commit our changes, we have to identify our git user name and e-mail. In the following command, replace `John Doe` with your name and `johndoe@example.com` with your e-mail address. Once ready, run the command in your PowerShell terminal.
+10. Before we commit our changes, we have to identify our git user name and e-mail. In the following command, replace `John Doe` with your name and `johndoe@example.com` with your Git account e-mail address. Once ready, run the command in your PowerShell terminal.
 
     ```powershell
     git config --global user.name "John Doe"
@@ -94,7 +90,7 @@ In this exercise, you will move the codebase to a GitHub Repo, create a staging 
 
 ### Task 2: Creating a staging deployment slot
 
-1. Go back to your lab resource group, navigate to your `partsunlimited-web-{uniquesuffix}` **(2)** App Service resource. You can search for `partsunlimited-web` **(1)** to find your Web App and App Service Plan
+1. Go back to your lab resource group, navigate to your `partsunlimited-web-{DeploymentID}` **(2)** App Service resource. You can search for `partsunlimited-web` **(1)** to find your Web App and App Service Plan
 
    ![The search box for resources is filled in with partsunlimited-web. The partsunlimited-web-20 Azure App Service is highlighted in the list of resources in the hands-on-lab-SUFFIX resource group.](media/resource-group-appservice-resource.png "Resources")
 
@@ -120,7 +116,7 @@ In this exercise, you will move the codebase to a GitHub Repo, create a staging 
 
     ![Deployment Center tab is selected. Go to Settings button is highlighted.](media/app-service-goto-deployment-settings.png "Deployment Center")
 
-3. Select **GitHub (1)** as your source; **.NET Core (2)** as the runtime stack and **.NET Core 2.1 (LTS) (3)** for version. Select **Authorize** to create the connection between the App Service deployment slot and the GitHub repository we previously prepared.
+3. Select **GitHub (1)** as your source; **.NET (2)** as the runtime stack and **.NET Core 2.1 (LTS) (3)** for version. Select **Authorize** to create the connection between the App Service deployment slot and the GitHub repository we previously prepared.
 
     ![Deployment Settings page is open. Source is set to GitHub. Runtime stack is set to .NET Core. Version is set to .NET Core 2.1 (LTS). Authorize button for GitHub is highlighted. ](media/app-service-deployment-settings.png "Deployment Center Settings")
 
@@ -214,7 +210,7 @@ In this exercise, you will move the codebase to a GitHub Repo, create a staging 
 
     ![Actions on the GitHub Repository is selected. The latest successful run of the workflow is highlighted.](media/github-actions-success.png "GitHub Actions success")
 
-16. Go back to your lab resource group on the Azure Portal, navigate to your `staging (partsunlimited-web-{uniquesuffix}/staging)` **(2)** App Service resource. You can search for `staging` **(1)** to find your App Service (Slot) for staging.
+16. Go back to your lab resource group on the Azure Portal, navigate to your `staging (partsunlimited-web-{DeploymentID}/staging)` **(2)** App Service resource. You can search for `staging` **(1)** to find your App Service (Slot) for staging.
 
     ![The search box for resources is filled in with staging. The staging (partsunlimited-web-{uniquesuffix}/staging) Azure App Service Deployment Slot is highlighted in the list of resources in the hands-on-lab-SUFFIX resource group.](media/select-staging-app-service.png "Staging Resource")
 
@@ -224,11 +220,7 @@ In this exercise, you will move the codebase to a GitHub Repo, create a staging 
 
 ### Task 4: Pushing code changes to staging and production
 
-1. Connect to your WebVM VM with RDP.
-
-   ![The WebVM virtual machine is highlighted in the list of resources.](media/webvm-selection.png "WebVM Resource Selection")
-
-2. Select the Start menu and search for **Visual Studio Code**. Select **Visual Studio Code** to run it.
+2. In WEBVM VM, Select the Start menu and search for **Visual Studio Code**. Select **Visual Studio Code** to run it.
 
     ![Start Menu is open. Visual Studio Code is typed in the search box. Visual Studio Code is highlighted from the list of search results.](media/vscode-start-menu.png "Visual Studio Code")
 
@@ -270,7 +262,7 @@ Now that Parts Unlimited has a separate staging environment for their e-commerce
 
 Once Parts Unlimited is happy with the changes tested in their staging environment, they can swap the two environments and have changes go to production. Environment Swap happens very fast and can help Parts Unlimited pull back changes by switching back if needed.
 
-1. Go back to your lab resource group, navigate to your `partsunlimited-web-{uniquesuffix}` **(2)** App Service resource. You can search for `partsunlimited-web` **(1)** to find your app service.
+1. Go back to your lab resource group, navigate to your `partsunlimited-web-{DeploymentID}` **(2)** App Service resource. You can search for `partsunlimited-web` **(1)** to find your app service.
 
    ![The search box for resources is filled in with partsunlimited-web. The partsunlimited-web-20 Azure App Service is highlighted in the list of resources in the hands-on-lab-SUFFIX resource group.](media/resource-group-appservice-resource.png "Resources")
 
