@@ -8,7 +8,7 @@ Azure Migrate provides a centralized hub to assess and migrate on-premises serve
 
 >Note: You can get your DeploymentID in environments tab of lab guide. Make a note of this ID, it will be used in throughout of this lab
 
-    ![Lab resource group is open. Resource Add button is highlighted.](media/portal-add-resource.png "Lab Resource Group")
+   ![Lab resource group is open. Resource Add button is highlighted.](media/portal-add-resource.png "Lab Resource Group")
 
 2. Type **Azure Migrate** into the search box and hit **Enter** to start the search.
 
