@@ -45,7 +45,7 @@ Parts Unlimited would like an assessment to see what potential issues they might
     - **Server name (1)**: Enter **SQLSERVER2008**.
     - **Authentication type (2)**: Select **SQL Server Authentication**.
     - **Username (3)**: Enter **PUWebSite**
-    - **Password (4)**: Enter **{YOUR-ADMIN-PASSWORD}**
+    - **Password (4)**: Enter WebVM Password from environments page
     - **Encrypt connection**: Check this box if not checked.
     - **Trust server certificate (5)**: Check this box.
 
@@ -136,7 +136,7 @@ After you have reviewed the assessment results and you have ensured the database
    - **Server name (1)**: Enter **SQLSERVER2008**.
    - **Authentication type (2)**: Select **SQL Server Authentication**.
    - **Username (3)**: Enter **PUWebSite**
-   - **Password (4)**: Enter **{YOUR-ADMIN-PASSWORD}**
+   - **Password (4)**: Enter WebVM Password from environments page
    - **Encrypt connection**: Check this box.
    - **Trust server certificate (5)**: Check this box.
    - Select **Connect (6)**, and then ensure the `PartsUnlimited` database is selected **(7)** from the list of databases.
@@ -150,7 +150,7 @@ After you have reviewed the assessment results and you have ensured the database
    - **Server name (1)**: Paste the server name of your Azure SQL Database you copied into a text editor in the previous task.
    - **Authentication type (2)**: Select SQL Server Authentication.
    - **Username (3)**: Enter **demouser**
-   - **Password (4)**: Enter **{YOUR-ADMIN-PASSWORD}**
+   - **Password (4)**: Enter WebVM Password from environments page
    - **Encrypt connection**: Check this box.
    - **Trust server certificate (5)**: Check this box.
    - Select **Connect (6)**, and then ensure the `parts` database is selected **(7)** from the list of databases.
@@ -182,7 +182,7 @@ After you have reviewed the assessment results and you have ensured the database
     - **Server name (1)**: Paste the server name of your Azure SQL Database you copied above.
     - **Authentication type (2)**: Select SQL Server Authentication.
     - **Username (3)**: Enter **demouser**
-    - **Password (4)**: Enter **{YOUR-ADMIN-PASSWORD}**
+    - **Password (4)**: Enter WebVM Password from environments page
     - **Remember password (5)**: Check this box.
 
     ![The SSMS Connect to Server dialog is displayed, with the Azure SQL Database name specified, SQL Server Authentication selected, and the demouser credentials entered.](media/ssms-connect-azure-sql-database.png "Connect to Server")
@@ -199,7 +199,7 @@ At this point, you have migrated the database schema using DMA. In this task, yo
 
 > The [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) integrates some of the functionality of Microsoft existing tools and services to provide customers with a comprehensive, highly available database migration solution. The service uses the Data Migration Assistant to generate assessment reports that provide recommendations to guide you through the changes required prior to performing a migration. When you're ready to begin the migration process, Azure Database Migration Service performs all of the required steps.
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your Azure Database Migration Service by selecting **Resource groups** from Azure services list, selecting the **hands-on-lab-SUFFIX** resource group, and then selecting the **contoso-dms-UniqueId** Azure Database Migration Service in the list of resources.
+1. In the [Azure portal](https://portal.azure.com), navigate to your Azure Database Migration Service by selecting **Resource groups** from Azure services list, selecting the **hands-on-lab-{DeploymentID}** resource group, and then selecting the **parts-dms-{DeploymentID}** Azure Database Migration Service in the list of resources.
 
    ![The contoso-dms Azure Database Migration Service is highlighted in the list of resources in the hands-on-lab-SUFFIX resource group.](media/resource-group-dms-resource.png "Resources")
 
@@ -212,7 +212,6 @@ At this point, you have migrated the database schema using DMA. In this task, yo
    - **Project name (1)**: Enter DataMigration.
    - **Source server type**: Select SQL Server.
    - **Target server type**: Select Azure SQL Database.
-   - **Choose type of activity**: Select **Offline data migration** and select **Save**.
 
    ![The New migration project blade is displayed, with the values specified above entered into the appropriate fields.](media/dms-new-migration-project-blade.png "New migration project")
 
@@ -223,7 +222,7 @@ At this point, you have migrated the database schema using DMA. In this task, yo
    - **Source SQL Server instance name (1)**: Enter the IP address of your SqlServer2008 VM that you copied into a text editor in the previous task. For example, `51.143.12.114`.
    - **Authentication type (2)**: Select SQL Authentication.
    - **Username (3)**: Enter **PUWebSite**
-   - **Password (4)**: Enter **{YOUR-ADMIN-PASSWORD}**
+   - **Password (4)**: Enter WebVM Password from environments page
    - **Connection properties (5)**: Check both Encrypt connection and Trust server certificate.
 
    ![The Migration Wizard Select source blade is displayed, with the values specified above entered into the appropriate fields.](media/dms-migration-wizard-select-source.png "Migration Wizard Select source")
@@ -236,10 +235,10 @@ At this point, you have migrated the database schema using DMA. In this task, yo
 
 8. On the Migration Wizard **Select target** blade, enter the following:
 
-   - **Target server name (1)**: Enter the `fullyQualifiedDomainName` value of your Azure SQL Database (e.g., parts-xwn4o7fy6bcbg.database.windows.net), which you copied in the previous task.
+   - **Target server name (1)**: Enter the `fullyQualifiedDomainName` value of your Azure SQL Database (e.g., parts-{DeploymentID}.database.windows.net), which you copied in the previous task.
    - **Authentication type (2)**: Select SQL Authentication.
    - **Username (3)**: Enter **demouser**
-   - **Password (4)**: Enter **{YOUR-ADMIN-PASSWORD}**
+   - **Password (4)**: Enter WebVM Password from environments page
    - **Connection properties**: Check Encrypt connection.
 
    ![The Migration Wizard Select target blade is displayed, with the values specified above entered into the appropriate fields.](media/dms-migration-wizard-select-target.png "Migration Wizard Select target")
@@ -304,11 +303,11 @@ Now that we have both our application and database migrated to Azure. It is time
 
    ![Connection string panel if SQL Database is open. Copy button for ADO.NET connection string is highlighted.](media/sql-connection-string-copy.png "Database connection string")
 
-3. Paste the value into a text editor, such as Notepad.exe, to replace the Password placeholder. Replace the `{your_password}` section with your admin password. Copy the full connection string with the replaced password for later use.
+3. Paste the value into a text editor, such as Notepad.exe, to replace the Password placeholder. Replace the `{your_password}` section with your WebVM Password from environments page. Copy the full connection string with the replaced password for later use.
 
     ![Notepad is open. SQL Connection string is pasted in. {your_password} placeholder is highlighted.](media/sql-connection-string-password-replace.png "Database connection string")
 
-4. Go back to the resource list, navigate to your `partsunlimited-web-{uniquesuffix}` **(2)** App Service resource. You can search for `partsunlimited-web` **(1)** to find your Web App and App Service Plan.
+4. Go back to the resource list, navigate to your `partsunlimited-web-{DeploymentID}` **(2)** App Service resource. You can search for `partsunlimited-web` **(1)** to find your Web App and App Service Plan.
 
    ![The search box for resource is filled in with partsunlimited-web. The partsunlimited-web-20 Azure App Service is highlighted in the list of resources in the hands-on-lab-SUFFIX resource group.](media/resource-group-appservice-resource.png "Resources")
 
