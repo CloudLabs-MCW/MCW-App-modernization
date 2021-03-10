@@ -45,7 +45,7 @@ Parts Unlimited would like an assessment to see what potential issues they might
     - **Server name (1)**: Enter **SQLSERVER2008**.
     - **Authentication type (2)**: Select **SQL Server Authentication**.
     - **Username (3)**: Enter **PUWebSite**
-    - **Password (4)**: Enter WebVM Password from environments page
+    - **Password (4)**: Enter **Password.1!!**
     - **Encrypt connection**: Check this box if not checked.
     - **Trust server certificate (5)**: Check this box.
 
