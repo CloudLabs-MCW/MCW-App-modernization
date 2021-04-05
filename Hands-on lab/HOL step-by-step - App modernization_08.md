@@ -6,7 +6,7 @@ In this exercise, you will move the codebase to a GitHub Repo, create a staging 
 
 ## Task 1: Moving the codebase to a GitHub repo
 
-1. Login to [GitHub](https://github.com) with your account. Select the New button positioned on top of the repositories list. As an alternative you can [navigate to the new repository site here](https://github.com/new).
+1. Login to [GitHub](https://github.com) with your personal account. Select the New button positioned on top of the repositories list. As an alternative you can [navigate to the new repository site here](https://github.com/new).
 
     ![GitHub.com Landing page is shown. New button to create a new repository is highlighted.](media/github-new-repo.png "GitHub new repo")
 
