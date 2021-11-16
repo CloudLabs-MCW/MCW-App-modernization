@@ -54,20 +54,20 @@ Storage Account from the list of resources.
 
     ![The parts{uniquesuffix} Storage Account is highlighted in the list of resources in the hands-on-lab-SUFFIX resource group.](media/select-storage-account.png "Storage Resource Selection")
 
-1. Switch to the **Access keys (1)** blade, and select **Show keys (2)**. Select the copy button for the first connection string **(3)**. Paste the value into a text editor, such as Notepad.exe, for later reference.
+2. Switch to the **Access keys (1)** blade, and select **Show keys (2)**. Select the copy button for the first connection string **(3)**. Paste the value into a text editor, such as Notepad.exe, for later reference.
 
     ![Access keys blade is open. Show keys button is highlighted. The copy button for the first connection string is pointed.](media/storage-account-connection-copy.png "Storage Access Keys")
 
-1. Go back to the resource list and navigate to your **(2) partsunlimited-web-<inject key="DeploymentID" enableCopy="false"/>**
+3. Go back to the resource list and navigate to your **(2) partsunlimited-web-<inject key="DeploymentID" enableCopy="false"/>**
 App Service resource. You can search for **(1)** `partsunlimited-web` to find your Web App and App Service Plan
 
    ![The search box for the resource is filled in with partsunlimited-web. The partsunlimited-web-20 Azure App Service is highlighted in the list of resources in the hands-on-lab-SUFFIX resource group.](media/resource-group-appservice-resource.png "Resources")
 
-1. Switch to the **Configuration (1)** blade, and select **+New connection string (2)**.
+4. Switch to the **Configuration (1)** blade, and select **+New connection string (2)**.
 
     ![App service configuration panel is open. +New connection string button is highlighted.](media/app-service-settings-new-connection.png "App Service Configuration")
 
-1. On the **Add/Edit connection string** panel, enter the following:
+5. On the **Add/Edit connection string** panel, enter the following:
 
    - **Name(1)**: Enter `StorageConnectionString`
    - **Value**: Enter Storage Connection String you copied in Step 2.
@@ -77,20 +77,20 @@ App Service resource. You can search for **(1)** `partsunlimited-web` to find yo
 
     ![Add/Edit Connection string panel is open. The name field is set to StorageConnectionString. The value field is set to the connection string copied in a previous step. Type is set to Custom. The deployment slot setting checkbox is checked. OK button is highlighted. ](media/app-service-storage-connection.png "Deployment Slot Configuration")
 
-1. Select **Save** and **Continue** for the following confirmation dialog.
+6. Select **Save** and **Continue** for the following confirmation dialog.
 
     ![App Service Configuration page is open. Save button is highlighted.](media/app-service-settings-save.png "App Service Configuration")
 
-1. Go back to the resource list and navigate to your **(2) parts-func-<inject key="DeploymentID" enableCopy="false"/>**     
+7. Go back to the resource list in Azure portal and navigate to your **(2) parts-func-<inject key="DeploymentID" enableCopy="false"/>**     
     Function App resource. You can search for **(1)** `func`  to find your function app.
 
    ![The search box for the resource is filled in with func. The parts-func-{uniquesuffix} Function App is highlighted in the list of resources in the hands-on-lab-SUFFIX resource group.](media/select-function-app.png "Function App Resource Selection")
 
-1. Switch to the **Configuration (1)** blade, and select **+New application setting (2)**.
+8. Switch to the **Configuration (1)** blade, and select **+New application setting (2)**.
 
     ![Function App configuration panel is open. +New application setting button is highlighted.](media/function-app-app-settings-new.png "Function App Configuration")
 
-1. On the **Add/Edit connection string** panel, enter the following:
+9. On the **Add/Edit connection string** panel, enter the following:
 
     - **Name(1)**: Enter `DefaultConnection`
     - **Value**: Enter SQL Connection String you copied in Exercise 3, Task 5, Step 3.
@@ -98,7 +98,7 @@ App Service resource. You can search for **(1)** `partsunlimited-web` to find yo
 
     ![Add/Edit Connection string panel is open. The name field is set to StorageConnectionString. The value field is set to the connection string copied in a previous step. Type is set to Custom. The deployment slot setting checkbox is checked. OK button is highlighted.](media/function-app-sql-setting.png "Function App Configuration")
 
-1. Select **Save** and **Continue** for the following confirmation dialog.
+10. Select **Save** and **Continue** for the following confirmation dialog.
 
     ![Function App Configuration page is open. Save button is highlighted.](media/function-app-setting-save.png "Function App Configuration")
 
