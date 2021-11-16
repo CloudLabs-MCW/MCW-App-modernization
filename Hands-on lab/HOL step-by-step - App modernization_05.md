@@ -16,7 +16,7 @@ Azure Migrate provides a centralized hub to assess and migrate on-premises serve
     * Password: <inject key="AzureAdUserPassword"></inject>
 
 
-    ![Azure Portal shorcut](media/azure-portal-start.png "Azure Portal shortcut")
+    ![Azure Portal shorcut](https://raw.githubusercontent.com/ShivaUdari/MCW-App-modernization/stage/Hands-on%20lab/media/azure-portal-start.png "Azure Portal shortcut")
 
 1. Select your **resource group**. 
 
