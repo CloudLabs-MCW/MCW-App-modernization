@@ -1,6 +1,6 @@
 # Migrate .Net Apps to Azure App Service
 
-### Overall Estimated Duration: 4 hours
+### Overall Estimated Duration: 1 hour
 
 ## Lab Scenario
 
