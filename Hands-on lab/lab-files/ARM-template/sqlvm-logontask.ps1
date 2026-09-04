@@ -107,8 +107,16 @@ Wait-Install
 Write-Host "Installing Edge..."
 Start-Process -file 'C:\MicrosoftEdgeEnterpriseX64.msi' -arg '/qn /l*v C:\edge_install.txt' -passthru | wait-process
 # Download and install SQL Server Management Studio 22 (SSMS)
-Invoke-WebRequest -Uri 'https://aka.ms/ssms/22/release/vs_SSMS.exe' -OutFile 'C:\vs_SSMS.exe' -UseBasicParsing
-Start-Process -file 'C:\vs_SSMS.exe' -arg '--quiet --norestart --wait --log C:\ssms_install.txt' -passthru | wait-process
+choco install sql-server-management-studio -y -force
+
+# Create a desktop shortcut for SQL Server Management Studio 22 (SSMS)
+$ssmsExe = "${env:ProgramFiles}\Microsoft SQL Server Management Studio 22\Release\Common7\IDE\Ssms.exe"
+if (Test-Path $ssmsExe) {
+    $WshShell = New-Object -ComObject WScript.Shell
+    $Shortcut = $WshShell.CreateShortcut("C:\Users\Public\Desktop\SQL Server Management Studio 22.lnk")
+    $Shortcut.TargetPath = $ssmsExe
+    $Shortcut.Save()
+}
 
 # Download 3.1.4 SDK
 (New-Object System.Net.WebClient).DownloadFile('https://download.visualstudio.microsoft.com/download/pr/70062b11-491c-403c-91db-9d84462ee292/5db435e39128cbb608e76bf5111ab3dc/dotnet-sdk-3.1.413-win-x64.exe', 'C:\dotnet-sdk-3.1.413-win-x64.exe')

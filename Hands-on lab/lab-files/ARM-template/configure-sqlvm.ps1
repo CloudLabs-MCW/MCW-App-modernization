@@ -148,12 +148,29 @@ choco feature enable -n allowGlobalConfirmation
 choco install dotnetfx -y -force
 
 # Download and install SQL Server Management Studio 22 (SSMS)
-Invoke-WebRequest -Uri 'https://aka.ms/ssms/22/release/vs_SSMS.exe' -OutFile 'C:\vs_SSMS.exe' -UseBasicParsing
-Start-Process -file 'C:\vs_SSMS.exe' -arg '--quiet --norestart --wait --log C:\ssms_install.txt' -passthru | wait-process
+choco install sql-server-management-studio -y -force
+
+# Create a desktop shortcut for SQL Server Management Studio 22 (SSMS)
+$ssmsExe = "${env:ProgramFiles}\Microsoft SQL Server Management Studio 22\Release\Common7\IDE\Ssms.exe"
+if (Test-Path $ssmsExe) {
+    $WshShell = New-Object -ComObject WScript.Shell
+    $Shortcut = $WshShell.CreateShortcut("C:\Users\Public\Desktop\SQL Server Management Studio 22.lnk")
+    $Shortcut.TargetPath = $ssmsExe
+    $Shortcut.Save()
+}
 
 Sleep 50
-Invoke-WebRequest -Uri 'https://aka.ms/ssms/22/release/vs_SSMS.exe' -OutFile 'C:\vs_SSMS.exe' -UseBasicParsing
-Start-Process -file 'C:\vs_SSMS.exe' -arg '--quiet --norestart --wait --log C:\ssms_install.txt' -passthru | wait-process
+# Download and install SQL Server Management Studio 22 (SSMS)
+choco install sql-server-management-studio -y -force
+
+# Create a desktop shortcut for SQL Server Management Studio 22 (SSMS)
+$ssmsExe = "${env:ProgramFiles}\Microsoft SQL Server Management Studio 22\Release\Common7\IDE\Ssms.exe"
+if (Test-Path $ssmsExe) {
+    $WshShell = New-Object -ComObject WScript.Shell
+    $Shortcut = $WshShell.CreateShortcut("C:\Users\Public\Desktop\SQL Server Management Studio 22.lnk")
+    $Shortcut.TargetPath = $ssmsExe
+    $Shortcut.Save()
+}
 
 $adminPassword = "demo!pass123"
 
