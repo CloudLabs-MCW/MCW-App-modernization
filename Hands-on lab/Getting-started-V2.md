@@ -33,8 +33,8 @@ You can start, stop, or restart your virtual machine at any time from the **Reso
  
 ## **Let's Get Started with Azure Portal**
  
-1. On your virtual machine, click the Azure portal shortcut as shown below:
- 
+1. On your virtual machine, open the Microsoft Edge, and navigate to `https://portal.azure.com/`
+
     ![](media/GS1.png "Enter Password")    
 
 1. You'll see the **Sign into Microsoft Azure** tab. Here, enter your credentials:
